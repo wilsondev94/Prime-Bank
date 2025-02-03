@@ -1,19 +1,10 @@
 import HeaderUsername from "@/components/HeaderUsername";
 import RightSidebar from "@/components/RightSidebar";
 import TotalBalance from "@/components/TotalBalance";
+import { getLoggedInUser } from "@/lib/actions/userActions";
 
-export default function Home() {
-  const loggedInUser = [
-    {
-      firstName: "Wilson",
-    },
-    {
-      lastName: "Ohioleayo",
-    },
-    {
-      email: "wilson@gmail.com",
-    },
-  ];
+export default async function Home() {
+  const loggedInUser = await getLoggedInUser();
 
   return (
     <section className="home">
@@ -22,7 +13,7 @@ export default function Home() {
           <HeaderUsername
             type="greeting"
             title="Welcome"
-            user="Wilson"
+            user={loggedInUser?.name || "Guest"}
             subtext="Access and manage your account and transactions efficiently."
           />
           <TotalBalance
@@ -33,11 +24,13 @@ export default function Home() {
         </header>
         RECENT TRANSACTIONS
       </div>
-      <RightSidebar
-        user={loggedInUser}
-        transacion={[]}
-        banks={[{ currentBalance: 1500 }, { currentBalance: 1700 }]}
-      />
+      {loggedInUser && (
+        <RightSidebar
+          user={loggedInUser}
+          transacion={[]}
+          banks={[{ currentBalance: 1500 }, { currentBalance: 1700 }]}
+        />
+      )}
     </section>
   );
 }

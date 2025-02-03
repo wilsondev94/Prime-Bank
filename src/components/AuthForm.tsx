@@ -19,7 +19,8 @@ import { signIn, signUp } from "@/lib/actions/userActions";
 
 export default function AuthForm({ type }: { type: string }) {
   const router = useRouter();
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(null);
+  console.log(user);
   const [isLoading, setIsLoading] = useState(false);
 
   const authSchema = authFormSchema(type);
@@ -33,9 +34,11 @@ export default function AuthForm({ type }: { type: string }) {
   });
 
   async function onSubmit(data: z.infer<typeof authSchema>) {
+    setIsLoading(true);
     try {
       if (type === "sign-up") {
         const newUser = await signUp(data);
+
         setUser(newUser);
       }
 
@@ -44,6 +47,7 @@ export default function AuthForm({ type }: { type: string }) {
           email: data.email,
           password: data.password,
         });
+
         if (res) router.push("/");
       }
     } catch (error) {

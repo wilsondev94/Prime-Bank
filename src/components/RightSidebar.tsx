@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import BanKCard from "./BanKCard";
+import BankCard from "./BankCard";
 
 export default function RightSidebar({
   user,
@@ -13,15 +13,11 @@ export default function RightSidebar({
         <div className="profile-banner" />
         <div className="profile">
           <div className="profile-img">
-            <span className="text-5xl font-bold">
-              {user[0].firstName.charAt(0)}
-            </span>
+            <span className="text-5xl font-bold">{user.name.charAt(0)}</span>
           </div>
           <div className="profile-details">
-            <h1 className="profile-name">
-              {user[0].firstName} {user[1].lastName}
-            </h1>
-            <p className="profile-email">{user[2].email}</p>
+            <h1 className="profile-name">{user.name}</h1>
+            <p className="profile-email">{user.email}</p>
           </div>
         </div>
       </section>
@@ -42,17 +38,17 @@ export default function RightSidebar({
         {banks?.length > 0 && (
           <div className="relative flex  flex-1 flex-col items-center justify-center gap-5">
             <div className="relative z-10">
-              <BanKCard
+              <BankCard
                 account={banks[0]}
-                userName={`${user.firstName} ${user.lastName}`}
+                userName={user.name}
                 showBalance={false}
               />
             </div>
             {banks[1] && (
               <div className="absolute right-0 top-8 z-0 w-[90%]">
-                <BanKCard
+                <BankCard
                   account={banks[1]}
-                  userName={`${user[0].firstName} ${user[1].lastName}`}
+                  userName={user.name}
                   showBalance={false}
                 />
               </div>

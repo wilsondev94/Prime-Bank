@@ -1,16 +1,17 @@
 import MobileNavbar from "@/components/MobileNavbar";
 import Sidebar from "@/components/Sidebar";
+import { getLoggedInUser } from "@/lib/actions/userActions";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const loggedInUser = {
-    firstName: "Wilson",
-    lastName: "Ohio",
-  };
+  const loggedInUser = await getLoggedInUser();
+
+  if (!loggedInUser) redirect("/sign-in");
 
   return (
     <main
@@ -22,7 +23,7 @@ export default function RootLayout({
         <div className="root-layout">
           <Image src="/icons/logo.svg" width={30} height={30} alt="menu icon" />
           <div>
-            <MobileNavbar />
+            <MobileNavbar user={loggedInUser} />
           </div>
         </div>
         {children}
