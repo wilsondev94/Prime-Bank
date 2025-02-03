@@ -34,13 +34,11 @@ export default function MobileNavbar() {
           >
             <Image
               src="/icons/logo.svg"
-              width={34}
-              height={34}
+              width={36}
+              height={36}
               alt="Prime logo"
             />
-            <h1 className="text-26 font-inter font-bold text-black-1">
-              Prime Bank
-            </h1>
+            <h1 className="text-26 font-inter font-bold text-black-3">Prime</h1>
           </Link>
           <div className="mobilenav-sheet">
             <SheetClose asChild>

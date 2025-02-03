@@ -15,10 +15,10 @@ export default function Sidebar({ user }: SiderbarProps) {
         <Link href="/" className="mb-12 flex cursor-pointer items-center gap-2">
           <Image
             src="/icons/logo.svg"
-            width={34}
-            height={34}
+            width={36}
+            height={36}
             alt="Prime logo"
-            className="size-[24px] max-xl:size-14"
+            className=" max-xl:size-14"
           />
           <h1 className="sidebar-logo">Prime</h1>
         </Link>

@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Prime",
+  title: "Prime Bank",
   description: "Prime is a modern banking platform for all.",
   icons: { icon: "/icons/logo.svg" },
 };
