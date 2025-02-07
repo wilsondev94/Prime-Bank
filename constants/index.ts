@@ -135,3 +135,11 @@ export const transactionCategoryStyles = {
     chipBackgroundColor: "bg-inherit",
   },
 };
+
+export const {
+  PROJECT_ID,
+  DATABASE_ID,
+  USER_COLLECTION_ID,
+  TRANSACTIONS_COLLECTION_ID,
+  BANKS_COLLECTION_ID,
+} = process.env;
