@@ -1,12 +1,14 @@
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
 
-const config: Config = {
+const config = {
   darkMode: ["class"],
   content: [
-    "./src/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
+    "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+    "./constants/**/*.{ts,tsx}",
   ],
   prefix: "",
   theme: {
@@ -57,7 +59,6 @@ const config: Config = {
         black: {
           1: "#00214F",
           2: "#344054",
-          3: "#0047AB",
         },
         gray: {
           25: "#FCFCFD",
@@ -102,8 +103,8 @@ const config: Config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
+    plugins: [tailwindcssAnimate],
   },
-  plugins: [tailwindcssAnimate],
-};
+} satisfies Config;
 
 export default config;

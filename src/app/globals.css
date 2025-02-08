@@ -117,19 +117,19 @@
     @apply flex flex-col justify-between gap-8;
   }
 
-  .total-bal {
+  .total-balance {
     @apply flex w-full items-center gap-4 rounded-xl border border-gray-200 p-4 shadow-chart sm:gap-6 sm:p-6;
   }
 
-  .total-bal-chart {
+  .total-balance-chart {
     @apply flex size-full max-w-[100px] items-center sm:max-w-[120px];
   }
 
-  .total-bal-label {
+  .total-balance-label {
     @apply text-14 font-medium text-gray-600;
   }
 
-  .total-bal-amount {
+  .total-balance-amount {
     @apply text-24 lg:text-30 flex-1 font-semibold text-gray-900;
   }
 
@@ -208,15 +208,15 @@
     @apply flex-center flex-col  gap-2 rounded-md bg-blue-25/20 px-4 py-2 text-white;
   }
 
-  .header-user {
+  .header-box {
     @apply flex flex-col gap-1;
   }
 
-  .header-user-title {
+  .header-box-title {
     @apply text-24 lg:text-30 font-semibold text-gray-900;
   }
 
-  .header-user-subtext {
+  .header-box-subtext {
     @apply text-14 lg:text-16 font-normal text-gray-600;
   }
 
@@ -369,7 +369,7 @@
   }
 
   .sidebar-logo {
-    @apply 2xl:text-26 font-inter text-[26px] font-bold text-black-3 max-xl:hidden;
+    @apply 2xl:text-26 font-ibm-plex-serif text-[26px] font-bold text-black-1 max-xl:hidden;
   }
 
   .sidebar-link {

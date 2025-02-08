@@ -4,16 +4,19 @@ import { Doughnut } from "react-chartjs-2";
 
 ChartJs.register(ArcElement, Tooltip, Legend);
 
-export default function TotalBalChart({ account }: DoughnutChartProps) {
+export default function TotalBalChart({ accounts }: DoughnutChartProps) {
+  const accountName = accounts.map((acct) => acct.name);
+  const balances = accounts.map((acct) => acct.currentBalance);
+
   const data = {
     datasets: [
       {
         label: "Banks",
-        data: [1200, 1250, 1300],
+        data: balances,
         backgroundColor: ["#0747b6", "#2265d8", "#2f91fa"],
       },
     ],
-    labels: ["Bank1", "Bank2", "bank3"],
+    labels: accountName,
   };
 
   return (

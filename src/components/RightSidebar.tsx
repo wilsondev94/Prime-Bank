@@ -13,10 +13,14 @@ export default function RightSidebar({
         <div className="profile-banner" />
         <div className="profile">
           <div className="profile-img">
-            <span className="text-5xl font-bold">{user.name.charAt(0)}</span>
+            <span className="text-5xl font-bold">
+              {user?.firstName.charAt(0)}
+            </span>
           </div>
           <div className="profile-details">
-            <h1 className="profile-name">{user.name}</h1>
+            <h1 className="profile-name">
+              {user.firstName} {user?.lastName}
+            </h1>
             <p className="profile-email">{user.email}</p>
           </div>
         </div>
@@ -40,7 +44,7 @@ export default function RightSidebar({
             <div className="relative z-10">
               <BankCard
                 account={banks[0]}
-                userName={user.name}
+                userName={`${user?.firstName} ${user?.lastName}`}
                 showBalance={false}
               />
             </div>
@@ -48,7 +52,7 @@ export default function RightSidebar({
               <div className="absolute right-0 top-8 z-0 w-[90%]">
                 <BankCard
                   account={banks[1]}
-                  userName={user.name}
+                  userName={`${user?.firstName} ${user?.lastName}`}
                   showBalance={false}
                 />
               </div>

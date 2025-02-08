@@ -12,7 +12,9 @@ export default function Footer({ user, type = "desktop" }: FooterProps) {
   return (
     <footer className="footer ">
       <div className={type === "mobile" ? "footer_name-mobile" : "footer_name"}>
-        <p className="text-xl font-bold text-gray-700">{user?.name.at(0)}</p>
+        <p className="text-xl font-bold text-gray-700">
+          {user?.firstName.at(0)}
+        </p>
       </div>
       <div
         className={type === "mobile" ? "footer_email-mobile" : "footer_email"}

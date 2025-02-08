@@ -59,7 +59,7 @@ declare type Account = {
   name: string;
   type: string;
   subtype: string;
-  appwriteItemId: string;
+  bankAccountId: string;
   sharableId: string;
 };
 
@@ -145,7 +145,7 @@ declare interface BankCardProps {
 
 declare interface BankInfoProps {
   account: Account;
-  appwriteItemId?: string;
+  bankAccountId?: string;
   type: "full" | "card";
 }
 
@@ -201,7 +201,7 @@ declare interface BankDropdownProps {
 
 declare interface BankTabItemProps {
   account: Account;
-  appwriteItemId?: string;
+  bankAccountId?: string;
 }
 
 declare interface TotlaBalanceProps {
@@ -228,7 +228,7 @@ declare interface SiderbarProps {
 declare interface RecentTransactionsProps {
   accounts: Account[];
   transactions: Transaction[];
-  appwriteItemId: string;
+  bankAccountId: string;
   page: number;
 }
 
@@ -263,7 +263,7 @@ declare interface getAccountsProps {
 }
 
 declare interface getAccountProps {
-  appwriteItemId: string;
+  bankAccountId: string;
 }
 
 declare interface getInstitutionProps {

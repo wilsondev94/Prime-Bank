@@ -136,10 +136,9 @@ export const transactionCategoryStyles = {
   },
 };
 
-export const {
-  PROJECT_ID,
-  DATABASE_ID,
-  USER_COLLECTION_ID,
-  TRANSACTIONS_COLLECTION_ID,
-  BANKS_COLLECTION_ID,
-} = process.env;
+export const PROJECT_ID = process.env.PROJECT_ID!;
+export const DATABASE_ID = process.env.DATABASE_ID!;
+export const USER_COLLECTION_ID = process.env.USER_COLLECTION_ID!;
+export const TRANSACTIONS_COLLECTION_ID =
+  process.env.TRANSACTIONS_COLLECTION_ID!;
+export const BANKS_COLLECTION_ID = process.env.BANKS_COLLECTION_ID!;
