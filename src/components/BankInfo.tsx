@@ -9,6 +9,7 @@ import { getAccountTypeColors } from "../../lib/utils";
 const BankInfo = ({ account, bankAccountId, type }: BankInfoProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  console.log(searchParams);
 
   const isActive = bankAccountId === account?.bankAccountId;
 

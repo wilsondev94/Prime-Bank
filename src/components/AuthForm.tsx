@@ -21,7 +21,7 @@ import PlaidLink from "./PlaidLink";
 export default function AuthForm({ type }: { type: string }) {
   const router = useRouter();
   const [user, setUser] = useState<User | null>(null);
-  console.log(user);
+  
   const [isLoading, setIsLoading] = useState(false);
 
   const authSchema = authFormSchema(type);

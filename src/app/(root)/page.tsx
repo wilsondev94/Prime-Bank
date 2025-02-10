@@ -18,11 +18,9 @@ export default async function Home({
   if (!accounts) return;
 
   const accountsData = accounts?.data;
-  console.log(accountsData);
 
   const bankAccountId = accounts?.data[0]?.bankAccountId || (id as string);
   const account = await getAccount({ bankAccountId });
-  console.log(account);
 
   return (
     <section className="home">
@@ -50,7 +48,7 @@ export default async function Home({
       {loggedInUser && (
         <RightSidebar
           user={loggedInUser}
-          transactions={accounts?.transactions}
+          transactions={account?.transactions}
           banks={accountsData?.slice(0, 2)}
         />
       )}

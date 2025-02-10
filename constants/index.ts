@@ -98,24 +98,35 @@ export const transactionCategoryStyles = {
     textColor: "text-pink-700",
     chipBackgroundColor: "bg-inherit",
   },
+
   Payment: {
     borderColor: "border-success-600",
     backgroundColor: "bg-green-600",
     textColor: "text-success-700",
     chipBackgroundColor: "bg-inherit",
   },
+
   "Bank Fees": {
     borderColor: "border-success-600",
     backgroundColor: "bg-green-600",
     textColor: "text-success-700",
     chipBackgroundColor: "bg-inherit",
   },
+
   Transfer: {
     borderColor: "border-red-700",
     backgroundColor: "bg-red-700",
     textColor: "text-red-700",
     chipBackgroundColor: "bg-inherit",
   },
+
+  Travel: {
+    borderColor: "border-[#0047AB]",
+    backgroundColor: "bg-blue-700",
+    textColor: "text-blue-700",
+    chipBackgroundColor: "bg-inherit",
+  },
+
   Processing: {
     borderColor: "border-[#F2F4F7]",
     backgroundColor: "bg-gray-500",
