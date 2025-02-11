@@ -4,11 +4,7 @@ import { formatAmount } from "../lib/utils";
 import Image from "next/image";
 import CopyId from "./CopyId";
 
-export default function BankCard({
-  account,
-  userName,
-  showBalance = true,
-}: BankCardProps) {
+function BankCard({ account, userName, showBalance = true }: BankCardProps) {
   return (
     <div className="flex flex-col">
       <Link
@@ -59,3 +55,5 @@ export default function BankCard({
     </div>
   );
 }
+
+export default BankCard;
