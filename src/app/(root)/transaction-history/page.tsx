@@ -3,7 +3,7 @@ import { getAccount, getAccounts } from "@/lib/actions/bankActions";
 import { getLoggedInUser } from "@/lib/actions/userActions";
 import { redirect } from "next/navigation";
 import React from "react";
-import { formatAmount } from "../../../../lib/utils";
+import { formatAmount } from "../../../lib/utils";
 import TransactionsTable from "@/components/TransactionsTable";
 
 export default async function TransactionHistoryPage({

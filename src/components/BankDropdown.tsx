@@ -12,7 +12,7 @@ import {
   SelectLabel,
   SelectTrigger,
 } from "@/components/ui/select";
-import { formUrlQuery, formatAmount } from "@/lib/utils";
+import { formatAmount, formUrlQuery } from "../lib/utils";
 
 export const BankDropdown = ({
   accounts = [],
@@ -24,7 +24,7 @@ export const BankDropdown = ({
   const [selected, setSeclected] = useState(accounts[0]);
 
   const handleBankChange = (id: string) => {
-    const account = accounts.find((account) => account.appwriteItemId === id)!;
+    const account = accounts.find((account) => account.bankAccountId === id)!;
 
     setSeclected(account);
     const newUrl = formUrlQuery({
@@ -45,7 +45,7 @@ export const BankDropdown = ({
       onValueChange={(value) => handleBankChange(value)}
     >
       <SelectTrigger
-        className={`flex w-full gap-3 md:w-[300px] ${otherStyles}`}
+        className={`flex w-full bg-white gap-3 md:w-[300px] ${otherStyles}`}
       >
         <Image
           src="icons/credit-card.svg"
@@ -56,7 +56,7 @@ export const BankDropdown = ({
         <p className="line-clamp-1 w-full text-left">{selected.name}</p>
       </SelectTrigger>
       <SelectContent
-        className={`w-full md:w-[300px] ${otherStyles}`}
+        className={`w-full bg-white md:w-[300px] ${otherStyles}`}
         align="end"
       >
         <SelectGroup>
@@ -66,7 +66,7 @@ export const BankDropdown = ({
           {accounts.map((account: Account) => (
             <SelectItem
               key={account.id}
-              value={account.appwriteItemId}
+              value={account.bankAccountId}
               className="cursor-pointer border-t"
             >
               <div className="flex flex-col ">

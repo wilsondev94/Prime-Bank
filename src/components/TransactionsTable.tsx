@@ -12,7 +12,7 @@ import {
   formatDateTime,
   getTransactionStatus,
   removeSpecialCharacters,
-} from "../../lib/utils";
+} from "../lib/utils";
 import { cn } from "@/lib/utils";
 import { transactionCategoryStyles } from "../../constants";
 

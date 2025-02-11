@@ -12,16 +12,16 @@ import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import ReusableInput from "./ReusableInput";
 import { authFormSchema } from "@/lib/schamas";
-import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { signIn, signUp } from "@/lib/actions/userActions";
 import PlaidLink from "./PlaidLink";
+import { cn } from "@/lib/utils";
 
 export default function AuthForm({ type }: { type: string }) {
   const router = useRouter();
   const [user, setUser] = useState<User | null>(null);
-  
+
   const [isLoading, setIsLoading] = useState(false);
 
   const authSchema = authFormSchema(type);

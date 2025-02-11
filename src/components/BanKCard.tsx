@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { formatAmount } from "../../lib/utils";
+import { formatAmount } from "../lib/utils";
 import Image from "next/image";
 import CopyId from "./CopyId";
 

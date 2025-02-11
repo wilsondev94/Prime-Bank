@@ -7,11 +7,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
-import { createTransfer } from "@/lib/actions/dwolla.actions";
-import { createTransaction } from "@/lib/actions/transaction.actions";
-import { getBank, getBankByAccountId } from "@/lib/actions/user.actions";
-import { decryptId } from "@/lib/utils";
-
 import { Button } from "./ui/button";
 import {
   Form,
@@ -25,6 +20,10 @@ import {
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { BankDropdown } from "./BankDropdown";
+import { decryptId } from "../lib/utils";
+import { getBank, getBankByAccountId } from "@/lib/actions/userActions";
+import { createTransfer } from "@/lib/actions/dwollaActions";
+import { createTransaction } from "@/lib/actions/transactionActions";
 
 const formSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -57,6 +56,7 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
       const receiverBank = await getBankByAccountId({
         accountId: receiverAccountId,
       });
+
       const senderBank = await getBank({ documentId: data.senderBank });
 
       const transferParams = {

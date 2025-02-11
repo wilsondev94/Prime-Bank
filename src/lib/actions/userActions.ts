@@ -3,11 +3,7 @@
 import { ID, Query } from "node-appwrite";
 import { createAdminClient, createSessionClient } from "../appwrite";
 import { cookies } from "next/headers";
-import {
-  encryptId,
-  extractCustomerIdFromUrl,
-  parseStringify,
-} from "../../../lib/utils";
+import { encryptId, extractCustomerIdFromUrl, parseStringify } from "../utils";
 import {
   CountryCode,
   ProcessorTokenCreateRequest,
@@ -268,6 +264,26 @@ export async function getBank({ documentId }: getBankProps) {
       BANKS_COLLECTION_ID,
       [Query.equal("$id", [documentId])]
     );
+
+    return parseStringify(bank.documents[0]);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getBankByAccountId({
+  accountId,
+}: getBankByAccountIdProps) {
+  const { database } = await createAdminClient();
+
+  try {
+    const bank = await database.listDocuments(
+      DATABASE_ID,
+      BANKS_COLLECTION_ID,
+      [Query.equal("accountId", [accountId])]
+    );
+
+    if (bank.total !== 1) return null;
 
     return parseStringify(bank.documents[0]);
   } catch (error) {

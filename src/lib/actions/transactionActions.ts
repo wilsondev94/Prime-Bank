@@ -2,7 +2,7 @@
 
 import { ID, Query } from "node-appwrite";
 import { createAdminClient } from "../appwrite";
-import { parseStringify } from "../../../lib/utils";
+import { parseStringify } from "../utils";
 import { DATABASE_ID, TRANSACTIONS_COLLECTION_ID } from "../../../constants";
 
 export const createTransaction = async (
