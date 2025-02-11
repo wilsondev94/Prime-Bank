@@ -10,6 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { authFormSchema } from "@/lib/schamas";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const authSchema = authFormSchema("sign-up");
 
 interface ReusableInputProps {

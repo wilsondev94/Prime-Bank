@@ -1,23 +1,23 @@
 "use server";
 
-import { ID, Query } from "node-appwrite";
-import { createAdminClient, createSessionClient } from "../appwrite";
+import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
-import { encryptId, extractCustomerIdFromUrl, parseStringify } from "../utils";
+import { ID, Query } from "node-appwrite";
 import {
   CountryCode,
   ProcessorTokenCreateRequest,
   ProcessorTokenCreateRequestProcessorEnum,
   Products,
 } from "plaid";
-import { plaidClient } from "../plaid";
-import { revalidatePath } from "next/cache";
-import { addFundingSource, createDwollaCustomer } from "./dwollaActions";
 import {
   BANKS_COLLECTION_ID,
   DATABASE_ID,
   USER_COLLECTION_ID,
 } from "../../../constants";
+import { createAdminClient, createSessionClient } from "../appwrite";
+import { plaidClient } from "../plaid";
+import { encryptId, extractCustomerIdFromUrl, parseStringify } from "../utils";
+import { addFundingSource, createDwollaCustomer } from "./dwollaActions";
 
 export async function signUp({ password, ...userData }: SignUpParams) {
   let newUserAccount;

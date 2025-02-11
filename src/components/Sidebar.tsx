@@ -32,7 +32,10 @@ export default function Sidebar({ user }: SiderbarProps) {
             <Link
               href={item.route}
               key={item.label}
-              className={cn("sidebar-link", isActive && "bg-bank-gradient")}
+              className={cn(
+                "sidebar-link hover:bg-gray-200",
+                isActive && "bg-bank-gradient"
+              )}
             >
               <div className="relative size-6">
                 <Image

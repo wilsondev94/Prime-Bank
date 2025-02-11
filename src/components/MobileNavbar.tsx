@@ -58,7 +58,7 @@ export default function MobileNavbar({ user }: MobileNavProps) {
                         href={item.route}
                         key={item.label}
                         className={cn(
-                          "mobilenav-sheet_close w-full",
+                          "mobilenav-sheet_close w-full hover:bg-gray-200",
                           isActive && "bg-bank-gradient"
                         )}
                       >

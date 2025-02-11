@@ -17,7 +17,7 @@ export default function BankCard({
       >
         <div className="bank-card_content">
           <div>
-            <h1 className="text-16 text-white font-semibold">{userName}</h1>
+            <h1 className="text-16 text-white font-semibold">{account.name}</h1>
             <p className="font-inter font-black text-white">
               {formatAmount(account?.currentBalance)}
             </p>

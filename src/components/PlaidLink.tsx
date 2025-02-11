@@ -53,7 +53,7 @@ export default function PlaidLink({ user, variant }: PlaidLinkProps) {
         <Button
           onClick={() => open()}
           disabled={!ready}
-          className="plaidlink-primary"
+          className="plaidlink-primary hover:bg-gray-200"
         >
           Connect bank
         </Button>
@@ -61,7 +61,7 @@ export default function PlaidLink({ user, variant }: PlaidLinkProps) {
         <Button
           variant="ghost"
           onClick={() => open()}
-          className="plaidlink-ghost"
+          className="plaidlink-ghost hover:bg-gray-200"
         >
           <Image
             src="/icons/connect-bank.svg"
@@ -74,7 +74,10 @@ export default function PlaidLink({ user, variant }: PlaidLinkProps) {
           </p>
         </Button>
       ) : (
-        <Button onClick={() => open()} className="plaidlink-default">
+        <Button
+          onClick={() => open()}
+          className="plaidlink-default hover:bg-gray-200"
+        >
           <Image
             src="/icons/connect-bank.svg"
             alt="Connect bank"

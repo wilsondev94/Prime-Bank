@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import React from "react";
 import { formatAmount } from "../../../lib/utils";
 import TransactionsTable from "@/components/TransactionsTable";
+import { Pagination } from "@/components/Pagination";
 
 export default async function TransactionHistoryPage({
   searchParams: { id, page },
@@ -15,11 +16,21 @@ export default async function TransactionHistoryPage({
   const accounts = await getAccounts({ userId: loggedInUser.$id });
   if (!accounts) return;
 
-  const accountsData = accounts?.data;
-
   const bankAccountId = accounts?.data[0]?.bankAccountId || (id as string);
   const account = await getAccount({ bankAccountId });
   const acct = account?.data;
+
+  const currentPage = Number(page as string) || 1;
+  const rowsPerPage = 10;
+  const totalPage = Math.ceil(account?.transactions.length / rowsPerPage);
+
+  const lastTransactionIndex = currentPage * rowsPerPage;
+  const firstTransactionIndex = lastTransactionIndex - rowsPerPage;
+
+  const currentTransactions = account?.transactions.slice(
+    firstTransactionIndex,
+    lastTransactionIndex
+  );
 
   return (
     <div className="transactions">
@@ -47,7 +58,12 @@ export default async function TransactionHistoryPage({
           </div>
         </div>
         <section className="flex w-full flex-col gap-6">
-          <TransactionsTable transactions={account.transactions} />
+          <TransactionsTable transactions={currentTransactions} />
+          {totalPage > 1 && (
+            <div className="my-4 w-full">
+              <Pagination totalPages={totalPage} page={currentPage} />
+            </div>
+          )}
         </section>
       </div>
     </div>
