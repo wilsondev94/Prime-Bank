@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import BankCard from "./BankCard";
 import { countTransactionCategories } from "@/lib/utils";
 import { Category } from "./Category";
+import BankCard from "./BankCard";
 
 export default function RightSidebar({
   user,
